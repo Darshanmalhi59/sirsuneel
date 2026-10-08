@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment 3 - Color Changer</title>
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f0fe;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: white;
+            width: 400px;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        p {
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            background-color: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        #colorName {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HTML -->
+    <div class="box">
+
+        <h1>Color Changer</h1>
+
+        <p>
+            Click the button to change the background color.
+        </p>
+
+        <button onclick="changeColor()">
+            Change Color
+        </button>
+
+        <div id="colorName">
+            Current Color: Light Blue
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function changeColor() {
+
+            let colors = [
+                "#ffd6d6",
+                "#d6ffd6",
+                "#fff0b3",
+                "#d6e4ff",
+                "#ead6ff"
+            ];
+
+            let randomColor =
+                colors[Math.floor(Math.random() * colors.length)];
+
+            document.body.style.backgroundColor = randomColor;
+
+            document.getElementById("colorName").innerHTML =
+                "Background Color Changed!";
+        }
+
+    </script>
+
+</body>
+</html>
