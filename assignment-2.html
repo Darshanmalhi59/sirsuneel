@@ -4,126 +4,844 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Introduction</title>
+    <title>Assignment 3 | HTML CSS JavaScript Git</title>
 
     <style>
-        body {
-            background-color: #e8ecf1;
-            font-family: Arial, sans-serif;
-            text-align: center;
+        * {
             margin: 0;
-            padding: 40px;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .card {
-            width: 320px;
-            background-color: white;
-            margin: auto;
-            padding: 25px;
-            border: 1px solid #ddd;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #cbd5e1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 35px auto;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .profile {
+            text-align: center;
         }
 
         .profile-image {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-        }
-
-        h1 {
-            color: #222;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         .role {
-            color: #666;
-            font-size: 17px;
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 15px;
         }
 
-        p {
-            line-height: 1.6;
-        }
-
-        ul {
-            text-align: left;
-            display: inline-block;
-        }
-
-        a {
-            display: inline-block;
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
             margin: 15px 0;
-            color: #0066cc;
-            text-decoration: none;
+        }
+
+        .skill {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 8px 15px;
+            border-radius: 20px;
         }
 
         button {
-            padding: 10px 18px;
+            padding: 11px 20px;
             border: none;
-            border-radius: 8px;
-            background-color: #222;
+            border-radius: 7px;
+            background: #2563eb;
             color: white;
             cursor: pointer;
             font-size: 15px;
         }
 
         button:hover {
-            background-color: #444;
+            background: #1d4ed8;
         }
 
         #message {
             margin-top: 15px;
-            font-weight: bold;
             color: green;
+            font-weight: bold;
+        }
+
+        .step {
+            border-left: 4px solid #2563eb;
+            padding: 15px 20px;
+            margin: 15px 0;
+            background: #f8fafc;
+        }
+
+        .step h3 {
+            margin-bottom: 7px;
+            color: #1e293b;
+        }
+
+        code {
+            display: block;
+            background: #111827;
+            color: #e5e7eb;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+        }
+
+        .concept {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .concept-box {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .concept-box h3 {
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        .workflow {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 20px;
+            background: #eff6ff;
+            border-radius: 10px;
+        }
+
+        .task-list {
+            padding-left: 20px;
+        }
+
+        .task-list li {
+            margin: 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            background: #111827;
+            color: white;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .concept {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
+    <!-- HEADER -->
 
-        <img
-            class="profile-image"
-            src="https://via.placeholder.com/120"
-            alt="Profile Picture"
-        >
+    <header>
+        <h1>Assignment 3</h1>
+        <p>HTML • CSS • JavaScript • Git • GitHub</p>
+    </header>
 
-        <h1>Manoj Kumar</h1>
 
-        <div class="role">
-            Web Developer in Making
-        </div>
+    <main class="container">
 
-        <p>
-            I am learning web development and building my
-            skills in HTML, CSS and JavaScript.
-        </p>
 
-        <h2>My Skills</h2>
+        <!-- ==============================
+             PART 1: HTML CSS JAVASCRIPT
+        =============================== -->
 
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-        </ul>
+        <section class="section profile">
 
-        <br>
+            <h2>Part 1 — My Introduction</h2>
 
-        <a href="https://www.google.com" target="_blank">
-            Visit My Portfolio
-        </a>
+            <img
+                class="profile-image"
+                src="https://via.placeholder.com/120"
+                alt="Profile Picture"
+            >
 
-        <br>
+            <h1>Manoj Kumar</h1>
 
-        <button onclick="showMessage()">
-            Show Message
-        </button>
+            <div class="role">
+                Web Developer in Making
+            </div>
 
-        <div id="message"></div>
+            <p>
+                I am learning web development and building my
+                skills in HTML, CSS and JavaScript.
+            </p>
 
-    </div>
+            <h3>My Skills</h3>
 
+            <div class="skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+            </div>
+
+            <br>
+
+            <a
+                href="https://www.google.com"
+                target="_blank"
+            >
+                Visit My Portfolio
+            </a>
+
+            <br><br>
+
+            <button onclick="showMessage()">
+                Show Message
+            </button>
+
+            <div id="message"></div>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 2: WHAT IS GIT?
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 2 — What is Git?</h2>
+
+            <p>
+                <strong>Git</strong> is a Version Control System.
+                It helps developers track and manage changes
+                made to their projects.
+            </p>
+
+            <p>
+                Think of Git as a history book for your code.
+                Every important version of your project can be
+                saved as a commit.
+            </p>
+
+            <div class="concept">
+
+                <div class="concept-box">
+                    <h3>Without Git</h3>
+                    <p>
+                        You may have many copies such as
+                        project-final, project-final2,
+                        project-final-new, etc.
+                    </p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>With Git</h3>
+                    <p>
+                        Git keeps the history of your project
+                        in an organized way.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 3: WHAT IS GITHUB?
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 3 — What is GitHub?</h2>
+
+            <p>
+                <strong>GitHub</strong> is an online platform
+                where developers can store, manage and share
+                Git repositories.
+            </p>
+
+            <br>
+
+            <div class="concept">
+
+                <div class="concept-box">
+                    <h3>Git</h3>
+                    <p>
+                        Manages project versions on your computer.
+                    </p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>GitHub</h3>
+                    <p>
+                        Stores your Git project online.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 4: GIT SETUP
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 4 — Connect Your Project with Git</h2>
+
+            <div class="step">
+
+                <h3>Step 1 — Create Project Folder</h3>
+
+                <p>
+                    Create a folder named:
+                </p>
+
+                <code>Assignment-3</code>
+
+                <p>
+                    Inside the folder save this file as:
+                </p>
+
+                <code>index.html</code>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 2 — Open Terminal</h3>
+
+                <p>
+                    Open your project folder in VS Code or
+                    Command Prompt and open the terminal.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 3 — Initialize Git</h3>
+
+                <p>
+                    Run this command:
+                </p>
+
+                <code>git init</code>
+
+                <p>
+                    This starts Git version control for your project.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 4 — Check Git Status</h3>
+
+                <code>git status</code>
+
+                <p>
+                    This command shows which files have been
+                    created or changed.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 5 — Add Your Files</h3>
+
+                <code>git add .</code>
+
+                <p>
+                    This prepares your changes for the next commit.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 6 — Create Your First Commit</h3>
+
+                <code>git commit -m "Initial Assignment 3"</code>
+
+                <p>
+                    A commit saves a version of your project.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 5: GITHUB
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 5 — Create GitHub Repository</h2>
+
+            <div class="step">
+
+                <h3>Step 1 — Open GitHub</h3>
+
+                <p>
+                    Go to GitHub and create a new repository.
+                </p>
+
+                <p>
+                    Repository name:
+                </p>
+
+                <code>assignment-3</code>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 2 — Connect GitHub Repository</h3>
+
+                <p>
+                    Copy your GitHub repository URL and run:
+                </p>
+
+                <code>
+git remote add origin https://github.com/USERNAME/assignment-3.git
+                </code>
+
+                <p>
+                    Replace <strong>USERNAME</strong> with your
+                    GitHub username.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 3 — Set Main Branch</h3>
+
+                <code>git branch -M main</code>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Step 4 — Push Your Project</h3>
+
+                <code>git push -u origin main</code>
+
+                <p>
+                    Push sends your local project commits
+                    to GitHub.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 6: VERSION CONTROL
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 6 — Learn Version Control</h2>
+
+            <p>
+                Now make a change to your project.
+            </p>
+
+            <p>
+                For example, change:
+            </p>
+
+            <code>&lt;h1&gt;Manoj Kumar&lt;/h1&gt;</code>
+
+            <p>
+                to:
+            </p>
+
+            <code>
+&lt;h1&gt;Manoj Kumar - Web Developer&lt;/h1&gt;
+            </code>
+
+
+            <div class="step">
+
+                <h3>1. Check the Change</h3>
+
+                <code>git status</code>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>2. Add the Change</h3>
+
+                <code>git add .</code>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>3. Save a New Version</h3>
+
+                <code>
+git commit -m "Updated developer title"
+                </code>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>4. Upload the New Version</h3>
+
+                <code>git push</code>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 7: GIT HISTORY
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 7 — View Version History</h2>
+
+            <p>
+                To see all your previous commits, use:
+            </p>
+
+            <code>git log --oneline</code>
+
+            <p>
+                You may see something like:
+            </p>
+
+            <code>
+a82f123 Updated developer title<br>
+b73d921 Initial Assignment 3
+            </code>
+
+            <p>
+                Each commit represents a saved version of
+                your project.
+            </p>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 8: GIT COMMANDS
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 8 — Important Git Commands</h2>
+
+            <div class="step">
+
+                <h3>git init</h3>
+
+                <p>
+                    Starts Git in your project.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>git status</h3>
+
+                <p>
+                    Shows project changes.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>git add .</h3>
+
+                <p>
+                    Adds changes for the next commit.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>git commit -m "message"</h3>
+
+                <p>
+                    Saves a new version of your project.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>git push</h3>
+
+                <p>
+                    Uploads your commits to GitHub.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>git pull</h3>
+
+                <p>
+                    Gets the latest changes from GitHub.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>git clone URL</h3>
+
+                <p>
+                    Downloads a GitHub repository to your computer.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 9: WORKFLOW
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 9 — Git Workflow</h2>
+
+            <p>
+                Whenever you make changes to your project,
+                follow this process:
+            </p>
+
+            <div class="workflow">
+
+                EDIT CODE
+                →
+                git status
+                →
+                git add .
+                →
+                git commit
+                →
+                git push
+                →
+                GITHUB
+
+            </div>
+
+            <br>
+
+            <p>
+                <strong>
+                    Remember: Edit → Add → Commit → Push
+                </strong>
+            </p>
+
+        </section>
+
+
+        <!-- ==============================
+             PART 10: ASSIGNMENT TASK
+        =============================== -->
+
+        <section class="section">
+
+            <h2>Part 10 — Your Assignment Task</h2>
+
+            <p>
+                Complete all the following tasks:
+            </p>
+
+            <ol class="task-list">
+
+                <li>Create the HTML introduction page.</li>
+
+                <li>Add CSS styling.</li>
+
+                <li>Add JavaScript functionality.</li>
+
+                <li>Create a Git repository.</li>
+
+                <li>Run <strong>git init</strong>.</li>
+
+                <li>Make your first commit.</li>
+
+                <li>Create a GitHub repository.</li>
+
+                <li>Connect your local project to GitHub.</li>
+
+                <li>Push your project to GitHub.</li>
+
+                <li>Make at least one change to your project.</li>
+
+                <li>Create a second commit.</li>
+
+                <li>Push the second version to GitHub.</li>
+
+                <li>Check your commit history using
+                    <strong>git log --oneline</strong>.
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- ==============================
+             FINAL LEARNING
+        =============================== -->
+
+        <section class="section">
+
+            <h2>What You Should Learn</h2>
+
+            <div class="concept">
+
+                <div class="concept-box">
+                    <h3>HTML</h3>
+                    <p>
+                        Creates the structure of a webpage.
+                    </p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>CSS</h3>
+                    <p>
+                        Designs and styles the webpage.
+                    </p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>JavaScript</h3>
+                    <p>
+                        Adds interaction and functionality.
+                    </p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>Git</h3>
+                    <p>
+                        Tracks changes and manages versions.
+                    </p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>GitHub</h3>
+                    <p>
+                        Stores and shares Git repositories online.
+                    </p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>Version Control</h3>
+                    <p>
+                        Keeps the history of your project changes.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Assignment 3 — Learn HTML, CSS, JavaScript, Git & GitHub</p>
+        <p>Practice • Build • Commit • Push • Learn</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
 
     <script>
 
