@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Suneel Malhi - Developer, Programmer and IT Instructor in Umerkot. Learn C, C++, Web Development and modern programming.">
+    <title>Sir Suneel | Developer & IT Instructor</title>
+    <style>
+        :root {
+            --bg: #f6efe3;
+            --paper: #fffdf9;
+            --card: #ffffff;
+            --text: #18243a;
+            --muted: #69758a;
+            --line: #e5dacb;
+            --blue: #2457d6;
+            --blue2: #168acb;
+            --navy: #182b49;
+            --gold: #c98a2e;
+            --green: #15966d;
+            --shadow: 0 18px 50px rgba(55, 43, 25, .10);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 8% 8%, rgba(212, 155, 63, .12), transparent 25%),
+                radial-gradient(circle at 90% 20%, rgba(37, 99, 235, .08), transparent 28%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 253, 248, .88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 950;
+            letter-spacing: -.5px
+        }
+
+        .logo span {
+            color: var(--blue)
+        }
+
+        .links {
+            display: flex;
+            gap: 24px;
+            color: #596477;
+            font-size: 14px;
+            font-weight: 650
+        }
+
+        .links a {
+            transition: .2s
+        }
+
+        .links a:hover {
+            color: var(--blue)
+        }
+
+        .menu {
+            display: none;
+            background: none;
+            border: 0;
+            color: var(--text);
+            font-size: 25px
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 90px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 14px;
+            border: 1px solid #d9e4f5;
+            background: #f7fbff;
+            border-radius: 999px;
+            color: #31527d;
+            font-size: 13px;
+            font-weight: 750;
+            margin-bottom: 22px;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(21, 150, 109, .4)
+        }
+
+        h1 {
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: .98;
+            letter-spacing: -4px;
+            margin-bottom: 23px;
+        }
+
+        .gradient {
+            background: linear-gradient(90deg, var(--navy), var(--blue), var(--blue2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 650px
+        }
+
+        .buttons {
+            display: flex;
+            gap: 13px;
+            margin-top: 30px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 13px 21px;
+            border-radius: 12px;
+            border: 1px solid #ddd4c7;
+            background: #fffdf8;
+            font-weight: 800;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--blue), var(--blue2));
+            color: white;
+            border: 0;
+            box-shadow: 0 12px 25px rgba(37, 99, 235, .20)
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, .13)
+        }
+
+        .hero-card {
+            position: relative;
+            padding: 25px;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, .82);
+            box-shadow: var(--shadow);
+        }
+
+        .avatar {
+            height: 275px;
+            border-radius: 22px;
+            display: grid;
+            place-items: center;
+            background:
+                radial-gradient(circle at 30% 25%, rgba(37, 99, 235, .16), transparent 28%),
+                radial-gradient(circle at 75% 75%, rgba(212, 155, 63, .18), transparent 30%),
+                #f4eee3;
+            border: 1px solid #e9dfd0;
+        }
+
+        .avatar strong {
+            font-size: 88px;
+            letter-spacing: -6px;
+            color: #24324a;
+            text-shadow: 0 10px 30px rgba(37, 99, 235, .10)
+        }
+
+        .code {
+            margin-top: 17px;
+            background: #172033;
+            border-radius: 16px;
+            padding: 15px;
+            font: 13px/1.8 ui-monospace, SFMono-Regular, monospace;
+            color: #dbe7f7;
+            box-shadow: 0 10px 25px rgba(23, 32, 51, .12);
+        }
+
+        .c1 {
+            color: #67e8f9
+        }
+
+        .c2 {
+            color: #c4b5fd
+        }
+
+        .c3 {
+            color: #86efac
+        }
+
+        section {
+            padding: 105px 0
+        }
+
+        .section-head {
+            margin-bottom: 45px
+        }
+
+        .kicker {
+            color: var(--blue);
+            font-weight: 850;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px
+        }
+
+        h2 {
+            font-size: clamp(32px, 5vw, 50px);
+            line-height: 1.05;
+            margin-top: 9px;
+            letter-spacing: -1.7px
+        }
+
+        .section-head p {
+            color: var(--muted);
+            margin-top: 13px;
+            max-width: 680px
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px
+        }
+
+        .stat,
+        .card {
+            background: rgba(255, 255, 255, .86);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 25px;
+            transition: .3s;
+            box-shadow: 0 10px 30px rgba(67, 51, 30, .045)
+        }
+
+        .stat:hover,
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #cbdcf5;
+            box-shadow: 0 18px 45px rgba(37, 99, 235, .09)
+        }
+
+        .stat b {
+            font-size: 35px;
+            display: block;
+            color: #1c2a42
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 18px
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 9px
+        }
+
+        .card p {
+            color: var(--muted)
+        }
+
+        .skills {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 20px
+        }
+
+        .tag {
+            padding: 9px 12px;
+            border: 1px solid #e1d9cd;
+            border-radius: 9px;
+            background: #faf6ef;
+            color: #465269;
+            font-size: 13px;
+            font-weight: 650
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden
+        }
+
+        .project-top {
+            height: 165px;
+            border-radius: 15px;
+            margin-bottom: 18px;
+            background:
+                radial-gradient(circle at 75% 20%, rgba(37, 99, 235, .20), transparent 32%),
+                radial-gradient(circle at 20% 90%, rgba(212, 155, 63, .18), transparent 38%),
+                linear-gradient(135deg, #f5f8fc, #eee8dd);
+            display: flex;
+            align-items: flex-end;
+            padding: 18px;
+            border: 1px solid #e9e2d7;
+        }
+
+        .project-number {
+            font-size: 48px;
+            font-weight: 950;
+            color: rgba(37, 53, 78, .13)
+        }
+
+        .project h3 {
+            font-size: 22px
+        }
+
+        .project p {
+            margin: 7px 0 16px
+        }
+
+        .project a {
+            color: var(--blue);
+            font-size: 14px;
+            font-weight: 850
+        }
+
+        .teach {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: stretch
+        }
+
+        .teach-big {
+            padding: 40px;
+            border-radius: 25px;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .35), transparent 25%),
+                linear-gradient(135deg, #e9f2ff, #f8efe0);
+            border: 1px solid #dbe5f1;
+        }
+
+        .teach-big .number {
+            font-size: 75px;
+            font-weight: 950;
+            line-height: 1;
+            color: var(--blue)
+        }
+
+        .teach-big p {
+            color: #687386;
+            margin-top: 12px
+        }
+
+        .list {
+            display: grid;
+            gap: 12px
+        }
+
+        .list div {
+            padding: 17px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .82);
+            border-radius: 15px
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px
+        }
+
+        .contact-card {
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, .88);
+            box-shadow: 0 12px 35px rgba(67, 51, 30, .06)
+        }
+
+        .contact-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .contact-item:last-child {
+            border: 0
+        }
+
+        .contact-item small {
+            display: block;
+            color: var(--muted);
+            margin-bottom: 3px
+        }
+
+        .contact-item a {
+            color: #2459b8;
+            font-weight: 700
+        }
+
+        footer {
+            padding: 28px 0;
+            border-top: 1px solid var(--line);
+            color: #7a8494;
+            font-size: 13px;
+            background: rgba(255, 253, 248, .55)
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: .7s ease
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: none
+        }
+
+        @media(max-width:800px) {
+            .links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                padding: 18px;
+                background: #fffdf8;
+                flex-direction: column;
+                border-bottom: 1px solid var(--line)
+            }
+
+            .links.open {
+                display: flex
+            }
+
+            .menu {
+                display: block
+            }
+
+            .hero-grid,
+            .about,
+            .teach,
+            .contact {
+                grid-template-columns: 1fr
+            }
+
+            .projects {
+                grid-template-columns: 1fr
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            h1 {
+                letter-spacing: -2.5px
+            }
+
+            .hero-card {
+                max-width: 520px;
+                margin: auto
+            }
+        }
+
+        @media(max-width:480px) {
+            .stats {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .stat {
+                padding: 18px
+            }
+
+            .stat b {
+                font-size: 28px
+            }
+
+            section {
+                padding: 80px 0
+            }
+
+            .teach-big {
+                padding: 28px
+            }
+
+            .teach-big .number {
+                font-size: 58px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav">
+            <a href="#home" class="logo">Sir<span>Suneel</span>.</a>
+            <button class="menu" id="menu">☰</button>
+            <div class="links" id="links">
+                <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+                <a href="#teaching">Teaching</a><a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="home">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="reveal">
+                    <div class="badge"><span class="dot"></span> Developer & IT Instructor · Umerkot, Sindh</div>
+                    <h1>Learn. Build.<br><span class="gradient">Create Impact.</span></h1>
+                    <p>Learn development with <strong>Sir Suneel</strong> in Umerkot. Learn HTML, CSS, JavaScript, C,
+                        C++ and Python through practical coding and projects.</p>
+                    <div class="buttons">
+                        <a class="btn primary" href="#projects">View Projects ↗</a>
+                        <a class="btn" href="#teaching">Explore Teaching</a>
+                        <a id="assignment-btn" class="btn primary" href="assignments.html" style="
+     position:relative;
+     display:inline-block;
+     padding:13px 22px;
+     border:2px solid #2457d6;
+     border-radius:12px;
+     background:linear-gradient(135deg,#2457d6,#168acb);
+     color:#fff;
+     font-weight:800;
+     text-decoration:none;
+     box-shadow:0 0 0 0 rgba(36,87,214,.5);
+     animation:assignmentPulse 1.8s infinite;
+   ">
+                            Assignments ↗
+                        </a>
+
+                        <style>
+                            @keyframes assignmentPulse {
+                                0% {
+                                    box-shadow: 0 0 0 0 rgba(36, 87, 214, .55);
+                                }
+
+                                50% {
+                                    box-shadow:
+                                        0 0 0 5px rgba(36, 87, 214, .10),
+                                        0 0 22px rgba(22, 138, 203, .45);
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 0 0 rgba(36, 87, 214, 0);
+                                }
+                            }
+
+                            #assignment-btn {
+                                transition: all .3s ease;
+                            }
+
+                            #assignment-btn:hover {
+                                transform: translateY(-3px) scale(1.03);
+                                border-color: #c98a2e;
+                                box-shadow:
+                                    0 0 0 3px rgba(201, 138, 46, .15),
+                                    0 0 25px rgba(201, 138, 46, .45);
+                            }
+                        </style>
+                    </div>
+                </div>
+                <div class="hero-card reveal">
+                    <div class="avatar"><strong>SS</strong></div>
+                    <div class="code">
+                        <span class="c1">class</span> Developer {<br>
+                        &nbsp;&nbsp;<span class="c2">skills</span> = [<span class="c3">"C"</span>, <span
+                            class="c3">"C++"</span>, <span class="c3">"Web"</span>];<br>
+                        &nbsp;&nbsp;<span class="c2">students</span> = <span class="c3">100+</span>;<br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="kicker">About</div>
+                    <h2>Technology with practical learning.</h2>
+                    <p>A developer-focused learning profile built around coding fundamentals, modern web development and
+                        real project experience.</p>
+                </div>
+                <div class="stats reveal">
+                    <div class="stat"><b>100+</b><span>Students Taught</span></div>
+                    <div class="stat"><b>4+</b><span>Featured Projects</span></div>
+                    <div class="stat"><b>C/C++</b><span>Programming Focus</span></div>
+                    <div class="stat"><b>Umerkot</b><span>Sindh, Pakistan</span></div>
+                </div>
+                <div class="about" style="margin-top:18px">
+                    <div class="card reveal">
+                        <h3>My Approach</h3>
+                        <p>Concepts ko sirf theory ki tarah nahi, balkay coding exercises aur real-world projects ke
+                            through samjhaya jata hai.</p>
+                    </div>
+                    <div class="card reveal">
+                        <h3>Mission</h3>
+                        <p>Students ko programming logic, problem solving aur modern development skills ke saath
+                            practical digital careers ke liye prepare karna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="kicker">Learn With Sir Suneel</div>
+                    <h2>Learn. Practice. Build.</h2>
+                    <p>Practical development learning from programming fundamentals to modern web development.</p>
+                </div>
+                <div class="projects">
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">01</div>
+                        </div>
+                        <h3>HTML Development</h3>
+                        <p>Learn semantic HTML and build clean, structured web pages.</p>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">02</div>
+                        </div>
+                        <h3>CSS Development</h3>
+                        <p>Learn layouts, responsive design, animations and modern UI styling.</p>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">03</div>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>Learn programming logic, DOM, events and interactive web development.</p>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">04</div>
+                        </div>
+                        <h3>C Programming</h3>
+                        <p>Build strong programming fundamentals, logic and problem-solving skills.</p>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">05</div>
+                        </div>
+                        <h3>C++</h3>
+                        <p>Learn C++ programming, OOP concepts and practical coding.</p>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">06</div>
+                        </div>
+                        <h3>Python</h3>
+                        <p>Learn Python fundamentals and create practical beginner-friendly programs.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="kicker">Selected Work</div>
+                    <h2>Projects & platforms.</h2>
+                    <p>Websites and technology platforms connected with education, software and digital transformation.
+                    </p>
+                </div>
+                <div class="projects">
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">01</div>
+                        </div>
+                        <h3>Sindh Academy Umerkot</h3>
+                        <p>Modern education website and digital learning ecosystem for Sindh Academy, Umerkot.</p>
+                        <a href="https://sindhacademyumerkot.com/" target="_blank">Visit Project ↗</a>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">02</div>
+                        </div>
+                        <h3>MasterMox</h3>
+                        <p>Technology and education-focused digital platform for practical skills and modern learning.
+                        </p>
+                        <a href="https://mastermox.com/" target="_blank">Visit Project ↗</a>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">03</div>
+                        </div>
+                        <h3>Innova IT Hub</h3>
+                        <p>Software and digital solutions platform focused on web, mobile, AI and education technology.
+                        </p>
+                        <a href="https://innovaithub.com/" target="_blank">Visit Project ↗</a>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="project-top">
+                            <div class="project-number">04</div>
+                        </div>
+                        <h3>School Nizam</h3>
+                        <p>Cloud-based school management ecosystem for admissions, attendance, exams, fees and
+                            communication.</p>
+                        <a href="https://schoolnizam.com/" target="_blank">Visit Project ↗</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="teaching">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="kicker">Teaching</div>
+                    <h2>Helping students become builders.</h2>
+                </div>
+                <div class="teach">
+                    <div class="teach-big reveal">
+                        <div class="number">100+</div>
+                        <h3>Students Taught</h3>
+                        <p>Practical learning sessions designed to make programming easier to understand and easier to
+                            apply.</p>
+                    </div>
+                    <div class="list reveal">
+                        <div><strong>01 · Programming Fundamentals</strong><br><span style="color:var(--muted)">Logic,
+                                variables, conditions, loops and functions.</span></div>
+                        <div><strong>02 · C & C++ Development</strong><br><span style="color:var(--muted)">Core syntax,
+                                problem solving and hands-on coding.</span></div>
+                        <div><strong>03 · Web Development</strong><br><span style="color:var(--muted)">HTML, CSS,
+                                JavaScript and responsive websites.</span></div>
+                        <div><strong>04 · Project-Based Learning</strong><br><span style="color:var(--muted)">Build
+                                useful projects while learning development.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="kicker">Contact</div>
+                    <h2>Let's build something useful.</h2>
+                    <p>For development, training and technology-related collaboration in Umerkot.</p>
+                </div>
+                <div class="contact">
+                    <div class="contact-card reveal">
+                        <h3>Sir Suneel</h3>
+                        <p style="color:var(--muted);margin-top:8px">Developer & IT Instructor</p>
+                        <div class="contact-item"><small>Location</small>Umerkot, Sindh, Pakistan</div>
+                        <div class="contact-item"><small>Focus</small>C · C++ · Web Development · IT Training</div>
+                    </div>
+                    <div class="contact-card reveal">
+                        <h3>Featured Links</h3>
+                        <div class="contact-item"><a href="https://sindhacademyumerkot.com/"
+                                target="_blank">sindhacademyumerkot.com ↗</a></div>
+                        <div class="contact-item"><a href="https://mastermox.com/" target="_blank">mastermox.com ↗</a>
+                        </div>
+                        <div class="contact-item"><a href="https://innovaithub.com/" target="_blank">innovaithub.com
+                                ↗</a></div>
+                        <div class="contact-item"><a href="https://schoolnizam.com/" target="_blank">schoolnizam.com
+                                ↗</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container"><span>© 2026 Sir Suneel. All rights reserved.</span><span>Built with HTML · CSS ·
+                JavaScript</span></div>
+    </footer>
+
+    <script>
+        const menu = document.getElementById('menu'), links = document.getElementById('links');
+        menu.addEventListener('click', () => links.classList.toggle('open'));
+        document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show') });
+        }, { threshold: .12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

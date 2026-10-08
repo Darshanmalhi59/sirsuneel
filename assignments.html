@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Assignments by Sir Suneel - Programming and Web Development Practice">
+  <title>Assignments | Sir Suneel</title>
+  <style>
+    :root {
+      --bg: #f6efe3;
+      --card: #fff;
+      --text: #18243a;
+      --muted: #69758a;
+      --line: #e5dacb;
+      --blue: #2457d6;
+      --blue2: #168acb;
+      --gold: #c98a2e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(201, 138, 46, .13), transparent 25%),
+        radial-gradient(circle at 90% 15%, rgba(36, 87, 214, .09), transparent 28%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .container {
+      width: min(1050px, 92%);
+      margin: auto
+    }
+
+    nav {
+      height: 72px;
+      background: rgba(255, 253, 249, .9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .nav {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 950
+    }
+
+    .logo span {
+      color: var(--blue)
+    }
+
+    .back {
+      color: var(--blue);
+      font-weight: 750;
+      font-size: 14px
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 0 55px
+    }
+
+    .kicker {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--blue);
+      font-weight: 850
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 65px);
+      letter-spacing: -2px;
+      margin: 10px 0
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: auto
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding-bottom: 100px
+    }
+
+    .card {
+      background: rgba(255, 255, 255, .9);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 35px rgba(55, 43, 25, .07);
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #cbdcf5
+    }
+
+    .number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e7efff, #fff1d9);
+      color: var(--blue);
+      font-weight: 950;
+      margin-bottom: 20px
+    }
+
+    .card h2 {
+      font-size: 21px;
+      margin-bottom: 8px
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .meta {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin: 18px 0
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: #faf6ef;
+      border: 1px solid #e3d9cb;
+      color: #596579;
+      font-size: 12px
+    }
+
+    .open {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    @media(max-width:800px) {
+      .grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:520px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav">
+      <a href="sir-suneel-portfolio.html" class="logo">Sir<span>Suneel</span>.</a>
+      <a href="sir-suneel-portfolio.html" class="back">← Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="kicker">Student Practice</div>
+      <h1>Assignments</h1>
+      <p>Programming and web development assignments by Sir Suneel. More assignments can be added here one by one.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <!-- SAMPLE ASSIGNMENT CARD: Duplicate this card for Assignment 2, 3, 4... -->
+      <article class="card">
+        <div class="number">01</div>
+        <h2>Assignment 01</h2>
+        <p>Create a responsive landing page using HTML and CSS with a hero section, cards and footer.</p>
+        <div class="meta">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Beginner</span>
+        </div>
+        <a class="open" href="assignment-1.html">View Assignment</a>
+      </article>
+
+         <article class="card">
+        <div class="number">02</div>
+        <h2>Assignment 2</h2>
+        <p>Create a responsive landing page using HTML and CSS with a hero section, cards and footer.</p>
+        <div class="meta">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Beginner</span>
+        </div>
+        <a class="open" href="assignment-2.html" >View Assignment</a>
+      </article>
+    </div>
+  </main>
+
+  <footer>© 2026 Sir Suneel · Learn · Practice · Build</footer>
+</body>
+
+</html>
