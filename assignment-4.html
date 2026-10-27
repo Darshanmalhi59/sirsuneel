@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment 4 - Counter App</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #243b55;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+            transform: translateX(-3px);
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 30px auto;
+        }
+
+        .section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .counter-box {
+            text-align: center;
+            padding: 30px 15px;
+            background-color: #f8fafc;
+            border-radius: 10px;
+        }
+
+        #count {
+            font-size: 65px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            padding: 11px 20px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .increase {
+            background-color: #16a34a;
+        }
+
+        .decrease {
+            background-color: #dc2626;
+        }
+
+        .reset {
+            background-color: #475569;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .step {
+            background-color: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        code {
+            display: block;
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            overflow-wrap: anywhere;
+        }
+
+        ul, ol {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .note {
+            background-color: #eff6ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        footer {
+            background-color: #243b55;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 500px) {
+            .section {
+                padding: 18px;
+            }
+
+            #count {
+                font-size: 50px;
+            }
+
+            button {
+                padding: 10px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div style="max-width: 850px; margin: 0 auto; text-align: left;">
+            <a href="assignments.html" class="back-link">← Back to Assignments</a>
+        </div>
+        <h1>Assignment 4</h1>
+        <p>Simple Counter App | HTML, CSS & JavaScript</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Counter Project -->
+
+        <section class="section">
+            <h2>Part 1: Counter App</h2>
+
+            <p>
+                Use the buttons to increase, decrease, or reset
+                the counter value.
+            </p>
+
+            <div class="counter-box">
+
+                <p>Current Count</p>
+
+                <div id="count">0</div>
+
+                <div class="buttons">
+                    <button class="increase" onclick="increaseCount()">
+                        Increase +
+                    </button>
+
+                    <button class="decrease" onclick="decreaseCount()">
+                        Decrease -
+                    </button>
+
+                    <button class="reset" onclick="resetCount()">
+                        Reset
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Learning Objectives -->
+
+        <section class="section">
+            <h2>Part 2: What Will You Learn?</h2>
+
+            <ul>
+                <li><strong>HTML:</strong> Headings, paragraphs and buttons.</li>
+                <li><strong>CSS:</strong> Colors, spacing and button design.</li>
+                <li><strong>JavaScript:</strong> Variables and functions.</li>
+                <li><strong>Events:</strong> Responding to button clicks.</li>
+                <li><strong>Git:</strong> Tracking changes in your project.</li>
+                <li><strong>GitHub:</strong> Hosting and sharing your code.</li>
+                <li><strong>Clone:</strong> Copying a repository to your computer.</li>
+            </ul>
+        </section>
+
+
+        <!-- Git and GitHub Instructions -->
+
+        <section class="section">
+            <h2>Part 3: Upload Your Project to GitHub</h2>
+
+            <div class="step">
+                <h3>Step 1: Create a Project Folder</h3>
+
+                <p>Create a folder named:</p>
+
+                <code>assignment-4</code>
+
+                <p>Save this code inside a file named:</p>
+
+                <code>index.html</code>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Open the Terminal</h3>
+
+                <p>
+                    Open your project folder in your code editor
+                    and open its terminal.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Initialize Git</h3>
+
+                <code>git init</code>
+
+                <p>
+                    This starts Git version control in your folder.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 4: Add and Commit Your File</h3>
+
+                <code>git add .</code>
+
+                <code>git commit -m "Create Assignment 4 Counter App"</code>
+
+                <p>
+                    A commit saves a version of your project.
+                </p>
+
+                <p>
+                    If Git asks you to configure your username or email,
+                    set your Git name and email before committing.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 5: Create a GitHub Repository</h3>
+
+                <p>
+                    Open GitHub and create a new repository named:
+                </p>
+
+                <code>assignment-4</code>
+
+                <p>
+                    For this beginner exercise, create an empty repository
+                    without adding a README or license.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 6: Connect Your Project</h3>
+
+                <p>
+                    Copy your repository URL from GitHub and run:
+                </p>
+
+                <code>git branch -M main</code>
+
+                <code>git remote add origin https://github.com/USERNAME/assignment-4.git</code>
+
+                <p>
+                    Replace USERNAME with your actual GitHub username.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 7: Push Your Code</h3>
+
+                <code>git push -u origin main</code>
+
+                <p>
+                    Your committed code will now be uploaded to GitHub.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Clone Instructions -->
+
+        <section class="section">
+            <h2>Part 4: Learn Git Clone</h2>
+
+            <p>
+                <strong>What is git clone?</strong>
+            </p>
+
+            <p>
+                Git clone downloads a copy of an existing GitHub
+                repository to your computer, including its available
+                project history.
+            </p>
+
+            <div class="step">
+                <h3>Step 1: Copy the Repository URL</h3>
+
+                <p>
+                    Open your GitHub repository, click the
+                    <strong>Code</strong> button, and copy its HTTPS URL.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Open a Different Folder</h3>
+
+                <p>
+                    Open the terminal in the location where you want
+                    to download the project. Do not open it inside
+                    your existing assignment-4 folder.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Clone the Repository</h3>
+
+                <p>Run this command using your actual repository URL:</p>
+
+                <code>git clone https://github.com/USERNAME/assignment-4.git</code>
+
+                <p>
+                    Git will create a new folder named
+                    <strong>assignment-4</strong> containing the project.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 4: Open the Cloned Project</h3>
+
+                <code>cd assignment-4</code>
+
+                <p>Check the files and Git status:</p>
+
+                <code>git status</code>
+
+                <p>
+                    You can now open index.html in your editor and
+                    run the project in your browser.
+                </p>
+            </div>
+
+            <div class="note">
+                <strong>Remember:</strong>
+
+                <p>
+                    <code>git clone</code> copies an existing repository
+                    to your computer.
+                </p>
+
+                <p>
+                    <code>git push</code> sends your local commits to
+                    the remote repository.
+                </p>
+
+                <p>
+                    <code>git pull</code> downloads and integrates
+                    changes from the remote repository.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Version Control Practice -->
+
+        <section class="section">
+            <h2>Part 5: Practice Version Control</h2>
+
+            <p>
+                After cloning the project, practise making a change.
+            </p>
+
+            <div class="step">
+                <h3>1. Change the Project</h3>
+
+                <p>
+                    For example, change the page heading or add a
+                    short description to the counter.
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>2. Check Your Changes</h3>
+
+                <code>git status</code>
+            </div>
+
+            <div class="step">
+                <h3>3. Add the Changes</h3>
+
+                <code>git add .</code>
+            </div>
+
+            <div class="step">
+                <h3>4. Create a New Version</h3>
+
+                <code>git commit -m "Update counter app"</code>
+            </div>
+
+            <div class="step">
+                <h3>5. Upload Your Changes</h3>
+
+                <code>git push</code>
+
+                <p>
+                    If you cloned a repository belonging to someone
+                    else and do not have write permission, create your
+                    own fork or repository before pushing.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Assignment Tasks -->
+
+        <section class="section">
+            <h2>Part 6: Your Assignment Tasks</h2>
+
+            <ol>
+                <li>Run the Counter App in your browser.</li>
+                <li>Test Increase, Decrease and Reset.</li>
+                <li>Understand the HTML, CSS and JavaScript.</li>
+                <li>Create a Git repository.</li>
+                <li>Make your first commit.</li>
+                <li>Upload your project to GitHub.</li>
+                <li>Clone your repository into another location.</li>
+                <li>Make a change and create another commit.</li>
+                <li>Check your commit history using <strong>git log --oneline</strong>.</li>
+            </ol>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Assignment 4 — Learn, Practise and Build</p>
+        <p>HTML | CSS | JavaScript | Git | GitHub</p>
+    </footer>
+
+
+    <script>
+        let count = 0;
+
+        function updateCounter() {
+            document.getElementById("count").textContent = count;
+        }
+
+        function increaseCount() {
+            count++;
+            updateCounter();
+        }
+
+        function decreaseCount() {
+            count--;
+            updateCounter();
+        }
+
+        function resetCount() {
+            count = 0;
+            updateCounter();
+        }
+    </script>
+
+</body>
+</html>
