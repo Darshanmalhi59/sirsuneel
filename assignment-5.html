@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment 5 - Student Task Manager</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+  }
+
+  .container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    animation: slideUp 0.6s ease;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .back-link:hover {
+    transform: translateX(-3px);
+    color: #5568d3;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 26px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  /* ---- Form ---- */
+  .task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .task-form input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+  }
+
+  .task-form input[type="text"]:focus {
+    border-color: #667eea;
+  }
+
+  .task-form select {
+    padding: 12px 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+    background: #fff;
+  }
+
+  .task-form button {
+    padding: 12px 22px;
+    background: #667eea;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .task-form button:hover {
+    background: #5568d3;
+  }
+
+  .task-form button:active {
+    transform: scale(0.97);
+  }
+
+  /* ---- Filters ---- */
+  .filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .filters button {
+    padding: 8px 16px;
+    border: 2px solid #667eea;
+    background: transparent;
+    color: #667eea;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s;
+  }
+
+  .filters button.active,
+  .filters button:hover {
+    background: #667eea;
+    color: #fff;
+  }
+
+  /* ---- Task List ---- */
+  #taskList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #f7f8fc;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+    animation: fadeIn 0.4s ease;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .task-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .task-item.high { border-left-color: #e74c3c; }
+  .task-item.medium { border-left-color: #f39c12; }
+  .task-item.low { border-left-color: #2ecc71; }
+
+  .task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #aaa;
+  }
+
+  .task-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #667eea;
+  }
+
+  .task-text {
+    flex: 1;
+    font-size: 15px;
+    color: #333;
+    word-break: break-word;
+  }
+
+  .priority-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .priority-tag.high { background: #ffe0e0; color: #e74c3c; }
+  .priority-tag.medium { background: #fff2d9; color: #f39c12; }
+  .priority-tag.low { background: #e0f7e9; color: #2ecc71; }
+
+  .delete-btn {
+    background: transparent;
+    border: none;
+    color: #e74c3c;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+
+  .delete-btn:hover {
+    background: #ffe0e0;
+  }
+
+  .empty-msg {
+    text-align: center;
+    color: #999;
+    padding: 30px 0;
+    font-style: italic;
+  }
+
+  /* ---- Stats ---- */
+  .stats {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    border-top: 2px dashed #eee;
+    color: #666;
+    font-size: 14px;
+  }
+
+  .stats span {
+    font-weight: 700;
+    color: #667eea;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="assignments.html" class="back-link">← Back to Assignments</a>
+  <h1>📋 Student Task Manager</h1>
+  <p class="subtitle">Assignment 5 — HTML + CSS + JavaScript (Basics to Advanced)</p>
+
+  <!-- FORM -->
+  <form class="task-form" id="taskForm">
+    <input type="text" id="taskInput" placeholder="Enter a new task..." required />
+    <select id="prioritySelect">
+      <option value="low">Low</option>
+      <option value="medium" selected>Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button type="submit">+ Add Task</button>
+  </form>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="active">Active</button>
+    <button class="filter-btn" data-filter="completed">Completed</button>
+  </div>
+
+  <!-- TASK LIST -->
+  <ul id="taskList"></ul>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div>Total: <span id="totalCount">0</span></div>
+    <div>Completed: <span id="completedCount">0</span></div>
+    <div>Pending: <span id="pendingCount">0</span></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ASSIGNMENT 5: Student Task Manager
+   Concepts Covered:
+   - DOM Selection & Manipulation
+   - Event Listeners (submit, click, change)
+   - Arrays & Objects
+   - Array Methods (filter, map, reduce)
+   - LocalStorage (persistence)
+   - Template Literals
+   - Conditional Logic
+   - Event Delegation
+   - Data Attributes
+   ============================================================ */
+
+// ---------- 1. State ----------
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let currentFilter = "all";
+
+// ---------- 2. DOM References ----------
+const taskForm     = document.getElementById("taskForm");
+const taskInput    = document.getElementById("taskInput");
+const prioritySel  = document.getElementById("prioritySelect");
+const taskList     = document.getElementById("taskList");
+const filterBtns   = document.querySelectorAll(".filter-btn");
+const totalCount   = document.getElementById("totalCount");
+const completedCount = document.getElementById("completedCount");
+const pendingCount = document.getElementById("pendingCount");
+
+// ---------- 3. Save to LocalStorage ----------
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// ---------- 4. Render Tasks ----------
+function renderTasks() {
+  // Filter tasks
+  let filtered = tasks;
+  if (currentFilter === "active") {
+    filtered = tasks.filter(t => !t.completed);
+  } else if (currentFilter === "completed") {
+    filtered = tasks.filter(t => t.completed);
+  }
+
+  // Clear list
+  taskList.innerHTML = "";
+
+  // Empty message
+  if (filtered.length === 0) {
+    taskList.innerHTML = `<p class="empty-msg">No tasks to show. Add one above! ✨</p>`;
+  } else {
+    filtered.forEach(task => {
+      const li = document.createElement("li");
+      li.className = `task-item ${task.priority} ${task.completed ? "completed" : ""}`;
+      li.dataset.id = task.id;
+
+      li.innerHTML = `
+        <input type="checkbox" ${task.completed ? "checked" : ""} class="toggle-checkbox" />
+        <span class="task-text">${task.text}</span>
+        <span class="priority-tag ${task.priority}">${task.priority}</span>
+        <button class="delete-btn" title="Delete">&times;</button>
+      `;
+
+      taskList.appendChild(li);
+    });
+  }
+
+  updateStats();
+}
+
+// ---------- 5. Update Stats ----------
+function updateStats() {
+  totalCount.textContent = tasks.length;
+  const completed = tasks.filter(t => t.completed).length;
+  completedCount.textContent = completed;
+  pendingCount.textContent = tasks.length - completed;
+}
+
+// ---------- 6. Add Task ----------
+taskForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const text = taskInput.value.trim();
+  if (text === "") return;
+
+  const newTask = {
+    id: Date.now(),
+    text: text,
+    priority: prioritySel.value,
+    completed: false
+  };
+
+  tasks.push(newTask);
+  saveTasks();
+  renderTasks();
+
+  // Reset input
+  taskInput.value = "";
+  taskInput.focus();
+});
+
+// ---------- 7. Event Delegation (toggle + delete) ----------
+taskList.addEventListener("click", function (e) {
+  const li = e.target.closest(".task-item");
+  if (!li) return;
+
+  const id = Number(li.dataset.id);
+
+  // Toggle complete
+  if (e.target.classList.contains("toggle-checkbox")) {
+    tasks = tasks.map(t =>
+      t.id === id ? { ...t, completed: !t.completed } : t
+    );
+    saveTasks();
+    renderTasks();
+  }
+
+  // Delete
+  if (e.target.classList.contains("delete-btn")) {
+    if (confirm("Delete this task?")) {
+      tasks = tasks.filter(t => t.id !== id);
+      saveTasks();
+      renderTasks();
+    }
+  }
+});
+
+// ---------- 8. Filters ----------
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", function () {
+    filterBtns.forEach(b => b.classList.remove("active"));
+    this.classList.add("active");
+    currentFilter = this.dataset.filter;
+    renderTasks();
+  });
+});
+
+// ---------- 9. Initial Render ----------
+renderTasks();
+</script>
+
+</body>
+</html>
